@@ -49,3 +49,25 @@
 補足：Auto Markdown TOC を有効にするには
 設定で以下の項目にチェックをつける
 ![](images/2021-07-25-12-03-22.png)
+
+## MarkDownの基本的な記述方法
+
+||記述方法|出力例|
+|---|---|---|
+|太字|`**a**`|**a**|
+|イタリック|`***a***`|***a***|
+|見出し|# 見出し||
+|リンク1|`[リンク](a.jp)`|[リンク](a.jp)|
+|リンク2|`<http://example.com>`|<http://example.com>|
+|リンク3|`http://example.com`|http://example.com|
+|画像|`![](example.jpeg)|`||
+|引用|>||
+|箇条書き|- example||
+|箇条書き（番号付き）|1. ||
+|水平線|---||
+|code|``|`a`|
+|codeブロック|||
+|表|`|||`||
+|チェックボタン|- [ ] example or - [x] example||
+|打消し|`~~example~~`|~~example~~|
+|絵文字|`:smile: :heart: :+1:`|:smile::heart::+1:|
