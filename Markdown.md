@@ -100,7 +100,7 @@
 ' 上記がないとgithubで表示できない
 scale 400 width
 ' 大きさを規定
-package "adapter" #gainboro{
+package "adapter" #gainsboro{
     [sample.dll]
 }
 
