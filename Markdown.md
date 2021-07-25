@@ -5,6 +5,7 @@
     - [1.1. Markdownとは](#11-markdown%E3%81%A8%E3%81%AF)
     - [1.2. 目的](#12-%E7%9B%AE%E7%9A%84)
     - [1.3. 事前準備](#13-%E4%BA%8B%E5%89%8D%E6%BA%96%E5%82%99)
+    - [1.4. MarkDownの基本的な記述方法](#14-markdown%E3%81%AE%E5%9F%BA%E6%9C%AC%E7%9A%84%E3%81%AA%E8%A8%98%E8%BF%B0%E6%96%B9%E6%B3%95)
 
 <!-- /TOC -->
 
@@ -60,14 +61,14 @@
 |リンク1|`[リンク](a.jp)`|[リンク](a.jp)|
 |リンク2|`<http://example.com>`|<http://example.com>|
 |リンク3|`http://example.com`|http://example.com|
-|画像|`![](example.jpeg)|`||
+|画像|`![](example.jpeg)`||
 |引用|>||
 |箇条書き|- example||
 |箇条書き（番号付き）|1. ||
 |水平線|---||
 |code|``|`a`|
 |codeブロック|||
-|表|`|||`||
+|表|||
 |チェックボタン|- [ ] example or - [x] example||
 |打消し|`~~example~~`|~~example~~|
 |絵文字|`:smile: :heart: :+1:`|:smile::heart::+1:|
