@@ -82,6 +82,7 @@
 ### 1.5.1. コンポーネント図
 
 >'```plantuml
+@startuml
 >scale 400 width
 >package "adapter" #gainboro{
 >    [sample.dll]
@@ -103,6 +104,7 @@
 >'```
 
 ```plantuml
+@startuml
 ' 上記がないとgithubで表示できない
 scale 400 width
 ' 大きさを規定
@@ -128,6 +130,7 @@ package "ライブラリ"{
 ### 1.5.2. アーキテクチャ図
 
 >'```plantuml
+@startuml
 >!define samplecircle circle #black
 >
 >samplecircle start
@@ -144,6 +147,7 @@ package "ライブラリ"{
 >'```
 
 ```plantuml
+@startuml
 !define samplecircle circle #black
 
 samplecircle start
@@ -162,6 +166,7 @@ client<-right-server:レスポンス
 ### 1.5.3. ユースケース
 
 >``plantuml
+@startuml
 >left to right direction
 >
 >actor "service"  as Adapter  
@@ -173,6 +178,7 @@ client<-right-server:レスポンス
 >``
 
 ```plantuml
+@startuml
 left to right direction 
 
 actor "service"  as Adapter  
@@ -186,6 +192,7 @@ Adapter --> indexQuery
 ## 1.6. シーケンス図
 
 >'```plantuml
+@startuml
 >actor service
 >participant Query
 >database data
@@ -196,6 +203,7 @@ Adapter --> indexQuery
 >'```
 
 ```plantuml
+@startuml
 actor service
 participant Query
 database data
