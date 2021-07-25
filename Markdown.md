@@ -1,7 +1,15 @@
-
 <!-- TOC -->
 
-
+- [1. Markdownの書き方について](#1-markdown%E3%81%AE%E6%9B%B8%E3%81%8D%E6%96%B9%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6)
+    - [1.1. Markdownとは](#11-markdown%E3%81%A8%E3%81%AF)
+    - [1.2. 目的](#12-%E7%9B%AE%E7%9A%84)
+    - [1.3. 事前準備](#13-%E4%BA%8B%E5%89%8D%E6%BA%96%E5%82%99)
+    - [1.4. MarkDownの基本的な記述方法](#14-markdown%E3%81%AE%E5%9F%BA%E6%9C%AC%E7%9A%84%E3%81%AA%E8%A8%98%E8%BF%B0%E6%96%B9%E6%B3%95)
+    - [1.5. plantUMLについて](#15-plantuml%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6)
+        - [1.5.1. コンポーネント図](#151-%E3%82%B3%E3%83%B3%E3%83%9D%E3%83%BC%E3%83%8D%E3%83%B3%E3%83%88%E5%9B%B3)
+        - [1.5.2. アーキテクチャ図](#152-%E3%82%A2%E3%83%BC%E3%82%AD%E3%83%86%E3%82%AF%E3%83%81%E3%83%A3%E5%9B%B3)
+        - [1.5.3. ユースケース](#153-%E3%83%A6%E3%83%BC%E3%82%B9%E3%82%B1%E3%83%BC%E3%82%B9)
+    - [1.6. シーケンス図](#16-%E3%82%B7%E3%83%BC%E3%82%B1%E3%83%B3%E3%82%B9%E5%9B%B3)
 
 <!-- /TOC -->
 
@@ -71,10 +79,9 @@
 
 ## 1.5. plantUMLについて
 
-### コンポーネント図
+### 1.5.1. コンポーネント図
 
 >'```plantuml
->@startuml
 >scale 400 width
 >package "adapter" #gainboro{
 >    [sample.dll]
@@ -96,7 +103,6 @@
 >'```
 
 ```plantuml
-@startuml
 ' 上記がないとgithubで表示できない
 scale 400 width
 ' 大きさを規定
@@ -119,10 +125,9 @@ package "ライブラリ"{
 @enduml
 ```
 
-### 1.5.1. アーキテクチャ図
+### 1.5.2. アーキテクチャ図
 
 >'```plantuml
->@startuml
 >!define samplecircle circle #black
 >
 >samplecircle start
@@ -139,7 +144,6 @@ package "ライブラリ"{
 >'```
 
 ```plantuml
-@startuml
 !define samplecircle circle #black
 
 samplecircle start
@@ -155,7 +159,7 @@ client<-right-server:レスポンス
 @enduml
 ```
 
-### 1.5.2. ユースケース
+### 1.5.3. ユースケース
 
 >``plantuml
 >left to right direction
@@ -179,4 +183,24 @@ Adapter --> indexQuery
 @enduml
 ```
 
+## 1.6. シーケンス図
 
+>'```plantuml
+>actor service
+>participant Query
+>database data
+>
+>service -> Query:サンプル
+>
+>@enduml
+>'```
+
+```plantuml
+actor service
+participant Query
+database data
+
+service -> Query:サンプル
+
+@enduml
+```
