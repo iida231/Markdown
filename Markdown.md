@@ -1,15 +1,6 @@
 <!-- TOC -->
 
-- [1. Markdownの書き方について](#1-markdown%E3%81%AE%E6%9B%B8%E3%81%8D%E6%96%B9%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6)
-    - [1.1. Markdownとは](#11-markdown%E3%81%A8%E3%81%AF)
-    - [1.2. 目的](#12-%E7%9B%AE%E7%9A%84)
-    - [1.3. 事前準備](#13-%E4%BA%8B%E5%89%8D%E6%BA%96%E5%82%99)
-    - [1.4. MarkDownの基本的な記述方法](#14-markdown%E3%81%AE%E5%9F%BA%E6%9C%AC%E7%9A%84%E3%81%AA%E8%A8%98%E8%BF%B0%E6%96%B9%E6%B3%95)
-    - [1.5. plantUMLについて](#15-plantuml%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6)
-        - [1.5.1. コンポーネント図](#151-%E3%82%B3%E3%83%B3%E3%83%9D%E3%83%BC%E3%83%8D%E3%83%B3%E3%83%88%E5%9B%B3)
-        - [1.5.2. アーキテクチャ図](#152-%E3%82%A2%E3%83%BC%E3%82%AD%E3%83%86%E3%82%AF%E3%83%81%E3%83%A3%E5%9B%B3)
-        - [1.5.3. ユースケース](#153-%E3%83%A6%E3%83%BC%E3%82%B9%E3%82%B1%E3%83%BC%E3%82%B9)
-    - [1.6. シーケンス図](#16-%E3%82%B7%E3%83%BC%E3%82%B1%E3%83%B3%E3%82%B9%E5%9B%B3)
+
 
 <!-- /TOC -->
 
@@ -44,7 +35,7 @@
 |Markdown All in one|便利機能盛沢山|
 |Markdown Paste|画像を挿入できる|
 |Paste Images|画像を挿入できる|
-|Markdown PDF|マークダウンをPDFに変更できる|
+
 |Zenkaku|全角のスペースを見やすくする|
 |PlantUML|UMLを作成できる|
 |Markdownlist|HTMLの記述用語が使える|
@@ -79,10 +70,62 @@
 
 ## 1.5. plantUMLについて
 
-### 1.5.1. コンポーネント図
+### 1.5.1. json
 
 >'```plantuml
-@startuml
+>@startjson
+>{
+>  "entitycode":"xx",
+>  "date":1992,
+>  "userlist":
+>  [
+>    {
+>    "user":
+>    {
+>      "birthday":"yyyy"
+>    },
+>    "Location":
+>    {
+>      "location":
+>      {
+>        "city":"XXXX"
+>      }
+>    }
+>    }
+>  ]
+>}
+@endjson
+>'```
+
+```plantuml
+@startjson
+{
+  "entitycode":"xx",
+  "date":1992,
+  "userlist":
+  [
+    {
+    "user":
+    {
+      "birthday":"yyyy"
+    },
+    "Location":
+    {
+      "location":
+      {
+        "city":"XXXX"
+      }
+    }
+    }
+  ]
+}
+@endjson
+```
+
+### 1.5.2. コンポーネント図
+
+>'```plantuml
+@staruml
 >scale 400 width
 >package "adapter" #gainboro{
 >    [sample.dll]
@@ -127,7 +170,7 @@ package "ライブラリ"{
 @enduml
 ```
 
-### 1.5.2. アーキテクチャ図
+### 1.5.3. アーキテクチャ図
 
 >'```plantuml
 @startuml
@@ -163,10 +206,10 @@ client<-right-server:レスポンス
 @enduml
 ```
 
-### 1.5.3. ユースケース
+### 1.5.4. ユースケース
 
 >``plantuml
-@startuml
+ @startuml
 >left to right direction
 >
 >actor "service"  as Adapter  
@@ -189,7 +232,7 @@ Adapter --> indexQuery
 @enduml
 ```
 
-## 1.6. シーケンス図
+### 1.5.5. シーケンス図
 
 >'```plantuml
 @startuml
@@ -210,5 +253,92 @@ database data
 
 service -> Query:サンプル
 
+@enduml
+```
+
+### 1.5.6. クラス図
+
+プライベートは書かない
+
+
+>```plantuml`
+ @startuml
+>package "sample.dll" {
+> interface Isample
+>  class Sample
+>  {
+>    `-` <`<get>`>privatefield{readonly}:string
+>    `+` publicfield:int
+>    `+` publicMethod():int
+>  }
+>  class Sample2
+>  Isample<|-Sample
+>  Sample<-Sample2
+>}
+>@enduml
+>'```
+
+```plantuml
+@startuml
+package "sample.dll" {
+  interface Isample
+  class Sample
+  {
+    - <<get>>privatefield{readonly}:string
+    + publicfield:int
+    + publicMethod():int
+  }
+  class Sample2
+  Isample<|-Sample
+  Sample<-Sample2
+}
+@enduml
+```
+
+### 1.5.7. ER図
+
+>'```plantuml
+ @startuml
+>entity "使用者テーブル" as UserTable
+>{
+>  UID(uid):uuid
+>  最重更新日(updateAt):datetime
+>  `--`
+>  氏名(Name):string
+>  氏名(Age):string
+>}
+>
+>entity "性別マスタ" as SeXMaster #FFF
+>{
+>  UID(uid):uuid
+>  最重更新日(updateAt):datetime
+>  `--`
+>  性別名称(Name):string
+>}
+>
+>SeXMaster||--o{ UserTable:１のみ ... 0以上
+>@enduml
+>'```
+
+```plantuml
+ @startuml
+entity "使用者テーブル" as UserTable
+{
+  UID(uid):uuid
+  最重更新日(updateAt):datetime
+  --
+  氏名(Name):string
+  氏名(Age):string
+}
+
+entity "性別マスタ" as SeXMaster #FFF
+{
+  UID(uid):uuid
+  最重更新日(updateAt):datetime
+  --
+  性別名称(Name):string
+}
+
+SeXMaster||--o{ UserTable:１のみ ... 0以上
 @enduml
 ```
