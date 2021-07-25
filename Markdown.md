@@ -1,11 +1,7 @@
 
 <!-- TOC -->
 
-- [1. Markdownの書き方について](#1-markdown%E3%81%AE%E6%9B%B8%E3%81%8D%E6%96%B9%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6)
-    - [1.1. Markdownとは](#11-markdown%E3%81%A8%E3%81%AF)
-    - [1.2. 目的](#12-%E7%9B%AE%E7%9A%84)
-    - [1.3. 事前準備](#13-%E4%BA%8B%E5%89%8D%E6%BA%96%E5%82%99)
-    - [1.4. MarkDownの基本的な記述方法](#14-markdown%E3%81%AE%E5%9F%BA%E6%9C%AC%E7%9A%84%E3%81%AA%E8%A8%98%E8%BF%B0%E6%96%B9%E6%B3%95)
+
 
 <!-- /TOC -->
 
@@ -51,7 +47,7 @@
 設定で以下の項目にチェックをつける
 ![](images/2021-07-25-12-03-22.png)
 
-## MarkDownの基本的な記述方法
+## 1.4. MarkDownの基本的な記述方法
 
 ||記述方法|出力例|
 |---|---|---|
@@ -72,3 +68,115 @@
 |チェックボタン|- [ ] example or - [x] example||
 |打消し|`~~example~~`|~~example~~|
 |絵文字|`:smile: :heart: :+1:`|:smile::heart::+1:|
+
+## 1.5. plantUMLについて
+
+### コンポーネント図
+
+>'```plantuml
+>@startuml
+>scale 400 width
+>package "adapter" #gainboro{
+>    [sample.dll]
+>}
+>
+>package "ライブラリ"{
+>  frame "sampleライブラリ"{
+>    [sample1.dll]
+>  }
+>
+>  frame "sample2ライブラリ"{
+>    [sample2.dll]
+>  }
+>}
+>
+>[sample.dll] -down-> [sample1.dll]
+>[sample1.dll]-left->[sample2.dll]
+>@enduml
+>'```
+
+```plantuml
+@startuml
+' 上記がないとgithubで表示できない
+scale 400 width
+' 大きさを規定
+package "adapter" #gainboro{
+    [sample.dll]
+}
+
+package "ライブラリ"{
+  frame "sampleライブラリ"{
+    [sample1.dll]
+  }
+
+  frame "sample2ライブラリ"{
+    [sample2.dll]
+  }
+}
+
+[sample.dll] -down-> [sample1.dll]
+[sample1.dll]-left->[sample2.dll]
+@enduml
+```
+
+### 1.5.1. アーキテクチャ図
+
+>'```plantuml
+>@startuml
+>!define samplecircle circle #black
+>
+>samplecircle start
+>
+>archimate #Technology "クライアント" as client >`<<technology-device>>`
+>
+>database "サーバー" as server
+>
+>client -up-> start
+>client -left->server:リクエスト
+>client<-right-server:レスポンス
+>
+>@enduml
+>'```
+
+```plantuml
+@startuml
+!define samplecircle circle #black
+
+samplecircle start
+
+archimate #Technology "クライアント" as client <<technology-device>>
+
+database "サーバー" as server
+
+client -up-> start
+client -left->server:リクエスト
+client<-right-server:レスポンス
+
+@enduml
+```
+
+### 1.5.2. ユースケース
+
+>``plantuml
+>left to right direction
+>
+>actor "service"  as Adapter  
+>rectangle Query{
+>  usecase "検索する"  as indexQuery
+>} 
+>Adapter --> indexQuery
+>@enduml
+>``
+
+```plantuml
+left to right direction 
+
+actor "service"  as Adapter  
+rectangle Query{
+  usecase "検索する"  as indexQuery
+} 
+Adapter --> indexQuery
+@enduml
+```
+
+
