@@ -43,7 +43,6 @@
   以下の部分から検索してインストールする
 
   ![](images/2021-07-25-11-32-32.png)
-
   
 |アプリ名|機能|
 |---|---|
@@ -51,7 +50,6 @@
 |Markdown All in one|便利機能盛沢山|
 |Markdown Paste|画像を挿入できる|
 |Paste Images|画像を挿入できる|
-
 |Zenkaku|全角のスペースを見やすくする|
 |PlantUML|UMLを作成できる|
 |Markdownlist|HTMLの記述用語が使える|
@@ -62,6 +60,11 @@
 設定で以下の項目にチェックをつける
 
 ![](images/2021-07-25-12-03-22.png)
+
+- googlechromeで以下の拡張機能を入れる
+
+1. Pegmatite(Githubのplantumlを表記してくれる)
+2. Markdown Viewer
 
 ## 1.4. MarkDownの基本的な記述方法
 
