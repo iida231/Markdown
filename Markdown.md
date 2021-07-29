@@ -285,7 +285,7 @@ service -> Query:サンプル
  @startuml
 >package "sample.dll" {
 > interface Isample
->  class Sample
+>  class Sample <サンプル文字>
 >  {
 >    `-` <`<get>`>privatefield{readonly}:string
 >    `+` publicfield:int
@@ -302,7 +302,7 @@ service -> Query:サンプル
 @startuml
 package "sample.dll" {
   interface Isample
-  class Sample
+  class Sample <サンプル文字>
   {
     - <<get>>privatefield{readonly}:string
     + publicfield:int
