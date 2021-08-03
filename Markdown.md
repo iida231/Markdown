@@ -87,6 +87,7 @@
 |チェックボタン|- [ ] example or - [x] example||
 |打消し|`~~example~~`|~~example~~|
 |絵文字|`:smile: :heart: :+1:`|:smile::heart::+1:|
+|ページ内リンク|`[目的](#12-目的)`|[目的](#12-目的)|
 
 ## 1.5. plantUMLについて
 
