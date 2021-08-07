@@ -95,7 +95,7 @@
 ### 1.5.1. json
 
 ```
-@startjson
+startjson
 {
   "entitycode":"xx",
   "date":1992,
@@ -116,7 +116,7 @@
     }
   ]
 }
-@endjson
+endjson
 ```
 
 ```plantuml
@@ -147,7 +147,7 @@
 ### 1.5.2. コンポーネント図
 
 ```
-@staruml
+startuml
 scale 400 width
 package "adapter" #gainboro{
     [sample.dll]
@@ -165,7 +165,7 @@ package "ライブラリ"{
 
 [sample.dll] -down-> [sample1.dll]
 [sample1.dll]-left->[sample2.dll]
-@enduml
+enduml
 ```
 
 ```plantuml
@@ -195,7 +195,7 @@ package "ライブラリ"{
 ### 1.5.3. アーキテクチャ図
 
 ```
-@startuml
+startuml
 !define samplecircle circle #black
 
 samplecircle start
@@ -208,7 +208,7 @@ client -up-> start
 client -left->server:リクエスト
 client<-right-server:レスポンス
 
-@enduml
+enduml
 ```
 
 ```plantuml
@@ -231,7 +231,7 @@ client<-right-server:レスポンス
 ### 1.5.4. ユースケース
 
 ```
- @startuml
+startuml
 left to right direction
 
 actor "service"  as Adapter  
@@ -239,7 +239,7 @@ rectangle Query{
   usecase "検索する"  as indexQuery
 } 
 Adapter --> indexQuery
-@enduml
+enduml
 ```
 
 ```plantuml
@@ -257,14 +257,14 @@ Adapter --> indexQuery
 ### 1.5.5. シーケンス図
 
 ```
-@startuml
+startuml
 actor service
 participant Query
 database data
 ==start==
 service -> Query:サンプル
 
-@enduml
+enduml
 ```
 
 ```plantuml
@@ -283,7 +283,7 @@ service -> Query:サンプル
 プライベートは書かない
 
 ```
-@startuml
+startuml
 package "sample.dll" {
   interface Isample
   class Sample <サンプル文字>
@@ -296,7 +296,7 @@ package "sample.dll" {
   Isample<|-Sample
   Sample<-Sample2
 }
-@enduml
+enduml
 ```
 
 ```plantuml
@@ -319,7 +319,7 @@ package "sample.dll" {
 ### 1.5.7. ER図
 
 ```
- @startuml
+startuml
 entity "使用者テーブル" as UserTable
 {
   UID(uid):uuid
@@ -338,7 +338,7 @@ entity "性別マスタ" as SeXMaster #FFF
 }
 
 SeXMaster||--o{ UserTable:１のみ ... 0以上
-@enduml
+enduml
 ```
 
 ```plantuml
