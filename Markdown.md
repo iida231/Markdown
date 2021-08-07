@@ -54,6 +54,8 @@
 |Markdownlist|HTMLの記述用語が使える|
 |Markdown Preview Enhanced|Markdownの結果が見れる|
 |Githistory|gitの更新履歴を確認できる|
+|Markdown PDF|MarkdownをPDFに変換できます|
+|Markdownlint|警告を直すだけで読みやすいMarkdownに|
 
 補足：Auto Markdown TOC を有効にするには
 設定で以下の項目にチェックをつける
@@ -81,8 +83,8 @@
 |箇条書き（番号付き）|1. ||
 |水平線|---||
 |code|``|`a`|
-|codeブロック|||
-|表|||
+|codeブロック|```cs ````||
+|表|`|||`||
 |チェックボタン|- [ ] example or - [x] example||
 |打消し|`~~example~~`|~~example~~|
 |絵文字|`:smile: :heart: :+1:`|:smile::heart::+1:|
@@ -92,30 +94,30 @@
 
 ### 1.5.1. json
 
->'```plantuml
->@startjson
->{
->  "entitycode":"xx",
->  "date":1992,
->  "userlist":
->  [
->    {
->    "user":
->    {
->      "birthday":"yyyy"
->    },
->    "Location":
->    {
->      "location":
->      {
->        "city":"XXXX"
->      }
->    }
->    }
->  ]
->}
+```
+@startjson
+{
+  "entitycode":"xx",
+  "date":1992,
+  "userlist":
+  [
+    {
+    "user":
+    {
+      "birthday":"yyyy"
+    },
+    "Location":
+    {
+      "location":
+      {
+        "city":"XXXX"
+      }
+    }
+    }
+  ]
+}
 @endjson
->'```
+```
 
 ```plantuml
 @startjson
@@ -144,27 +146,27 @@
 
 ### 1.5.2. コンポーネント図
 
->'```plantuml
+```cs
 @staruml
->scale 400 width
->package "adapter" #gainboro{
->    [sample.dll]
->}
->
->package "ライブラリ"{
->  frame "sampleライブラリ"{
->    [sample1.dll]
->  }
->
->  frame "sample2ライブラリ"{
->    [sample2.dll]
->  }
->}
->
->[sample.dll] -down-> [sample1.dll]
->[sample1.dll]-left->[sample2.dll]
->@enduml
->'```
+scale 400 width
+package "adapter" #gainboro{
+    [sample.dll]
+}
+
+package "ライブラリ"{
+  frame "sampleライブラリ"{
+    [sample1.dll]
+  }
+
+  frame "sample2ライブラリ"{
+    [sample2.dll]
+  }
+}
+
+[sample.dll] -down-> [sample1.dll]
+[sample1.dll]-left->[sample2.dll]
+@enduml
+```
 
 ```plantuml
 @startuml
@@ -192,22 +194,22 @@ package "ライブラリ"{
 
 ### 1.5.3. アーキテクチャ図
 
->'```plantuml
+```cs
 @startuml
->!define samplecircle circle #black
->
->samplecircle start
->
->archimate #Technology "クライアント" as client >`<<technology-device>>`
->
->database "サーバー" as server
->
->client -up-> start
->client -left->server:リクエスト
->client<-right-server:レスポンス
->
->@enduml
->'```
+!define samplecircle circle #black
+
+samplecircle start
+
+archimate #Technology "クライアント" as client <<technology-device>>
+
+database "サーバー" as server
+
+client -up-> start
+client -left->server:リクエスト
+client<-right-server:レスポンス
+
+@enduml
+```
 
 ```plantuml
 @startuml
@@ -228,17 +230,17 @@ client<-right-server:レスポンス
 
 ### 1.5.4. ユースケース
 
->``plantuml
+```cs
  @startuml
->left to right direction
->
->actor "service"  as Adapter  
->rectangle Query{
->  usecase "検索する"  as indexQuery
->} 
->Adapter --> indexQuery
->@enduml
->``
+left to right direction
+
+actor "service"  as Adapter  
+rectangle Query{
+  usecase "検索する"  as indexQuery
+} 
+Adapter --> indexQuery
+@enduml
+```
 
 ```plantuml
 @startuml
@@ -254,23 +256,23 @@ Adapter --> indexQuery
 
 ### 1.5.5. シーケンス図
 
->'```plantuml
+```cs
 @startuml
->actor service
->participant Query
->database data
->
->service -> Query:サンプル
->
->@enduml
->'```
+actor service
+participant Query
+database data
+==start==
+service -> Query:サンプル
+
+@enduml
+```
 
 ```plantuml
 @startuml
 actor service
 participant Query
 database data
-
+==start==
 service -> Query:サンプル
 
 @enduml
@@ -280,23 +282,22 @@ service -> Query:サンプル
 
 プライベートは書かない
 
-
->```plantuml`
- @startuml
->package "sample.dll" {
-> interface Isample
->  class Sample <サンプル文字>
->  {
->    `-` <`<get>`>privatefield{readonly}:string
->    `+` publicfield:int
->    `+` publicMethod():int
->  }
->  class Sample2
->  Isample<|-Sample
->  Sample<-Sample2
->}
->@enduml
->'```
+```cs
+@startuml
+package "sample.dll" {
+  interface Isample
+  class Sample <サンプル文字>
+  {
+    - <<get>>privatefield{readonly}:string
+    + publicfield:int
+    + publicMethod():int
+  }
+  class Sample2
+  Isample<|-Sample
+  Sample<-Sample2
+}
+@enduml
+```
 
 ```plantuml
 @startuml
@@ -317,28 +318,28 @@ package "sample.dll" {
 
 ### 1.5.7. ER図
 
->'```plantuml
+```cs
  @startuml
->entity "使用者テーブル" as UserTable
->{
->  UID(uid):uuid
->  最重更新日(updateAt):datetime
->  `--`
->  氏名(Name):string
->  氏名(Age):string
->}
->
->entity "性別マスタ" as SeXMaster #FFF
->{
->  UID(uid):uuid
->  最重更新日(updateAt):datetime
->  `--`
->  性別名称(Name):string
->}
->
->SeXMaster||--o{ UserTable:１のみ ... 0以上
->@enduml
->'```
+entity "使用者テーブル" as UserTable
+{
+  UID(uid):uuid
+  最重更新日(updateAt):datetime
+  --
+  氏名(Name):string
+  氏名(Age):string
+}
+
+entity "性別マスタ" as SeXMaster #FFF
+{
+  UID(uid):uuid
+  最重更新日(updateAt):datetime
+  --
+  性別名称(Name):string
+}
+
+SeXMaster||--o{ UserTable:１のみ ... 0以上
+@enduml
+```
 
 ```plantuml
  @startuml
