@@ -146,7 +146,7 @@
 
 ### 1.5.2. コンポーネント図
 
-```cs
+```
 @staruml
 scale 400 width
 package "adapter" #gainboro{
@@ -194,7 +194,7 @@ package "ライブラリ"{
 
 ### 1.5.3. アーキテクチャ図
 
-```cs
+```
 @startuml
 !define samplecircle circle #black
 
@@ -230,7 +230,7 @@ client<-right-server:レスポンス
 
 ### 1.5.4. ユースケース
 
-```cs
+```
  @startuml
 left to right direction
 
@@ -256,7 +256,7 @@ Adapter --> indexQuery
 
 ### 1.5.5. シーケンス図
 
-```cs
+```
 @startuml
 actor service
 participant Query
@@ -282,7 +282,7 @@ service -> Query:サンプル
 
 プライベートは書かない
 
-```cs
+```
 @startuml
 package "sample.dll" {
   interface Isample
@@ -318,7 +318,7 @@ package "sample.dll" {
 
 ### 1.5.7. ER図
 
-```cs
+```
  @startuml
 entity "使用者テーブル" as UserTable
 {
