@@ -256,16 +256,26 @@ Adapter --> indexQuery
 
 ### 1.5.5. シーケンス図
 
-```
+```cs
 startuml
 actor service
 participant Query
 database data
 ==start==
-service -> Query:サンプル
+service -> Query:問い合わせ
 
+alt 検索結果がない
+Query --> service:失敗
+else 検索結果がある
+Query --> service:成功
+end
+group つながる
+Query -> service:監視
+end
 enduml
 ```
+
+
 
 ```plantuml
 @startuml
@@ -273,7 +283,16 @@ actor service
 participant Query
 database data
 ==start==
-service -> Query:サンプル
+service -> Query:問い合わせ
+
+alt 検索結果がない
+Query --> service:失敗
+else 検索結果がある
+Query --> service:成功
+end
+group つながる
+Query -> service:監視
+end
 
 @enduml
 ```
