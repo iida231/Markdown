@@ -31,7 +31,9 @@
 
 ## 1.3. 事前準備
 
-- vscodeをinstall
+- [vscodeをinstall](https://azure.microsoft.com/ja-jp/products/visual-studio-code/)
+  - インストール画面で以下を選択しておくと便利
+  ![](images/2021-10-30-15-03-28.png)
 - TOCを生成する際のバグを回避するために以下の動作を行う
   - 設定を開く
   - Eolを検索しauto→/nと変更する
