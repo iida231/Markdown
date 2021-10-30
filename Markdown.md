@@ -1,7 +1,4 @@
-
-<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
-
-<!-- code_chunk_output -->
+<!-- TOC -->
 
 - [1. Markdownの書き方について](#1-markdownの書き方について)
   - [1.1. Markdownとは](#11-markdownとは)
@@ -16,8 +13,9 @@
     - [1.5.5. シーケンス図](#155-シーケンス図)
     - [1.5.6. クラス図](#156-クラス図)
     - [1.5.7. ER図](#157-er図)
+    - [1.5.8. 木構造](#158-木構造)
 
-<!-- /code_chunk_output -->
+<!-- /TOC -->
 
 # 1. Markdownの書き方について
 
@@ -363,5 +361,30 @@ entity "性別マスタ" as SeXMaster #FFF
 }
 
 SeXMaster||--o{ UserTable:１のみ ... 0以上
+@enduml
+```
+
+### 1.5.8. 木構造
+
+```cs
+@startuml
+salt
+{{T
++ 動物
+++ ペンギン
++++ 皇帝ペンギン
+}}
+@enduml
+```
+
+```plantuml
+@startuml
+salt
+{{T
++ 動物
+++ ペンギン
++++ 皇帝ペンギン
+}}
+
 @enduml
 ```
